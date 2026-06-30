@@ -38,6 +38,9 @@ services:
       JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-dev-access-secret-change-me}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-dev-refresh-secret-change-me}
       UPLOAD_DIR: /app/uploads
+      # Set to "true" to auto-seed demo data on boot (idempotent).
+      SEED_ON_START: ${SEED_ON_START:-false}
+      SEED_KB_ON_START: ${SEED_KB_ON_START:-false}
     ports:
       - "${API_PORT:-8080}:8080"
     volumes:

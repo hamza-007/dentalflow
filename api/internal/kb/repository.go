@@ -43,6 +43,20 @@ func (r *Repository) CreateChunk(ctx context.Context, documentID string, in Chun
 	return nil
 }
 
+// DeleteDocumentByTitle removes documents with the given title and their chunks.
+// Used to make (re)seeding idempotent.
+func (r *Repository) DeleteDocumentByTitle(ctx context.Context, title string) error {
+	const delChunks = `DELETE FROM kb_chunks WHERE document_id IN (SELECT id FROM kb_documents WHERE title = $1)`
+	const delDocs = `DELETE FROM kb_documents WHERE title = $1`
+	if _, err := r.pool.Exec(ctx, delChunks, title); err != nil {
+		return fmt.Errorf("delete kb chunks: %w", err)
+	}
+	if _, err := r.pool.Exec(ctx, delDocs, title); err != nil {
+		return fmt.Errorf("delete kb document: %w", err)
+	}
+	return nil
+}
+
 // RetrieveByMaterial returns all chunks for a material (deterministic, ordered
 // by parameter type then page), each with provenance for citation.
 func (r *Repository) RetrieveByMaterial(ctx context.Context, material string, limit int) ([]RetrievedChunk, error) {

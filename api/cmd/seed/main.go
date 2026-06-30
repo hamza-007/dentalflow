@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"log/slog"
 	"time"
 
 	"github.com/jackc/pgx/v5/pgxpool"
@@ -14,6 +15,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 
 	"dentalflow/api/internal/config"
+	"dentalflow/api/internal/db"
 )
 
 const demoPassword = "password123"
@@ -25,6 +27,11 @@ func main() {
 	cfg, err := config.Load()
 	if err != nil {
 		log.Fatalf("load config: %v", err)
+	}
+
+	// Ensure the schema exists (safe to run before the server has started).
+	if err := db.Migrate(cfg.DatabaseURL, slog.Default()); err != nil {
+		log.Fatalf("migrate: %v", err)
 	}
 
 	ctx := context.Background()

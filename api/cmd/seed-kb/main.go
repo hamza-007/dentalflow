@@ -11,12 +11,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"log/slog"
 	"os"
 
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/joho/godotenv"
 
 	"dentalflow/api/internal/config"
+	"dentalflow/api/internal/db"
 	"dentalflow/api/internal/kb"
 )
 
@@ -29,6 +31,11 @@ func main() {
 	cfg, err := config.Load()
 	if err != nil {
 		log.Fatalf("load config: %v", err)
+	}
+
+	// Ensure the schema exists (safe to run before the server has started).
+	if err := db.Migrate(cfg.DatabaseURL, slog.Default()); err != nil {
+		log.Fatalf("migrate: %v", err)
 	}
 
 	path := defaultSeed
@@ -52,9 +59,9 @@ func main() {
 	defer pool.Close()
 
 	svc := kb.NewService(kb.NewRepository(pool))
-	n, err := svc.Ingest(ctx, seed.Document, seed.Chunks)
+	n, err := svc.Reseed(ctx, seed.Document, seed.Chunks)
 	if err != nil {
-		log.Fatalf("ingest: %v", err)
+		log.Fatalf("seed kb: %v", err)
 	}
 
 	fmt.Printf("seeded %d chunks from %q (%s)\n", n, seed.Document.Title, path)

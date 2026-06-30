@@ -26,6 +26,15 @@ func (s *Service) Ingest(ctx context.Context, doc Document, chunks []ChunkInput)
 	return len(chunks), nil
 }
 
+// Reseed replaces any existing document with the same title, then ingests —
+// idempotent, so it's safe to re-run (e.g. self-seed on every boot).
+func (s *Service) Reseed(ctx context.Context, doc Document, chunks []ChunkInput) (int, error) {
+	if err := s.repo.DeleteDocumentByTitle(ctx, doc.Title); err != nil {
+		return 0, err
+	}
+	return s.Ingest(ctx, doc, chunks)
+}
+
 // RetrieveByMaterial returns the chunks for a material with provenance.
 func (s *Service) RetrieveByMaterial(ctx context.Context, material string, limit int) ([]RetrievedChunk, error) {
 	return s.repo.RetrieveByMaterial(ctx, material, limit)
