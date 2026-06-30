@@ -13,13 +13,20 @@
     }
   },
   "landing": {
-    "loginCta": "Se connecter",
-    "registerCta": "Créer un compte",
-    "eyebrow": "Prothèse dentaire · numérisée",
-    "h1a": "Du fauteuil au labo,",
-    "h1b": "sans un seul appel.",
-    "sub": "DentalFlow remplace WhatsApp, le téléphone et les bons papier par un flux clair : prescription structurée, schéma dentaire FDI, suivi en temps réel et messagerie par cas.",
-    "trust": "Pensé pour les prothésistes et les dentistes — notation FDI, teintes VITA, et chaque type de prothèse.",
+    "getStarted": "Commencer",
+    "tryLab": "Essayer comme labo",
+    "demoError": "Impossible de démarrer la démo. Vérifiez que l'API tourne et que les données sont initialisées.",
+    "eyebrow": "Plateforme SaaS pour la prothèse dentaire",
+    "h1a": "Du cabinet au labo,",
+    "h1b": "chaque cas au même endroit.",
+    "sub": "DentalFlow est une plateforme cloud qui relie dentistes et laboratoires : prescriptions structurées, schéma FDI, suivi en temps réel, messagerie par cas, calendrier des échéances et fiche de fabrication générée automatiquement.",
+    "heroNote": "Sans installation — essayez la plateforme directement.",
+    "values": {
+      "v1": "Centralisé",
+      "v2": "Structuré",
+      "v3": "Temps réel",
+      "v4": "Arabe / Français"
+    },
     "card": {
       "case": "Cas",
       "status": "En fabrication",
@@ -30,12 +37,28 @@
       "deadline": "Échéance",
       "dueValue": "J−2"
     },
-    "problem": {
-      "eyebrow": "Le quotidien, aujourd'hui",
-      "title": "100 minutes par jour, perdues au téléphone.",
-      "body": "« C'est prêt, le bridge de Mme Mechri ? » Le labo cherche dans trois cahiers. Les infos arrivent par WhatsApp, SMS, appel et papier — en même temps. Plus personne ne sait qui a dit quoi.",
-      "solutionEyebrow": "Avec DentalFlow",
-      "solutionTitle": "Tout vit dans le cas."
+    "how": {
+      "eyebrow": "Comment ça marche",
+      "title": "Trois étapes, pas plus.",
+      "s1t": "Créez le cas",
+      "s1b": "Type, dents en un clic, matériau, teinte et échéance.",
+      "s2t": "Suivez la production",
+      "s2b": "Le labo avance le cas étape par étape ; le dentiste le voit en direct.",
+      "s3t": "Recevez & livrez",
+      "s3b": "Photos, signature numérique et bon de livraison PDF archivé."
+    },
+    "roles": {
+      "eyebrow": "Pour qui ?",
+      "dentistTitle": "Pour les dentistes",
+      "dentistBody": "Créez les cas, suivez l'avancement, échangez avec le labo, recevez avec un bon signé.",
+      "labTitle": "Pour les laboratoires",
+      "labBody": "Recevez les cas, gérez les échéances en couleurs, générez la fiche de fabrication, archivez vos travaux."
+    },
+    "studioSection": {
+      "eyebrow": "Nouveau module",
+      "title": "Prosthesis Studio",
+      "body": "Un aperçu 3D générique de la prothèse et une fiche de fabrication générée depuis une base de données fabricants — chaque valeur numérique avec sa source.",
+      "badge": "aperçu — non destiné à l'usinage"
     },
     "features": {
       "eyebrow": "Le produit",
@@ -65,7 +88,7 @@
     },
     "ctaBand": {
       "title": "Prêt à ranger les cahiers ?",
-      "body": "Créez votre compte et lancez votre premier cas en deux minutes.",
+      "body": "Lancez la démo et entrez dans le tableau de bord en quelques secondes.",
       "button": "Commencer"
     },
     "footer": {

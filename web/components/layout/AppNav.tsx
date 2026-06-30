@@ -19,7 +19,7 @@ export default function AppNav() {
   function handleLogout() {
     setOpen(false);
     logout();
-    router.replace('/auth/login');
+    router.replace('/');
   }
 
   const links = (

@@ -23,7 +23,7 @@ export default function AuthGuard({
   useEffect(() => {
     if (loading) return;
     if (!user) {
-      router.replace('/auth/login');
+      router.replace('/');
     } else if (role && user.role !== role) {
       router.replace('/dashboard');
     }
