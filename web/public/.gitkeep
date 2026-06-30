@@ -1,0 +1,2 @@
+# Static assets served at the site root (e.g. /tooth-library/*.stl for the
+# 3D preview). Kept so the directory exists for the Docker build.

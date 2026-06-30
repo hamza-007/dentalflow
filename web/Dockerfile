@@ -9,6 +9,9 @@ FROM node:20-alpine AS build
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# Ensure public/ exists even if the repo has no static assets (App Router keeps
+# the favicon in app/) — the runner stage copies it.
+RUN mkdir -p public
 # NEXT_PUBLIC_* is inlined at build time. Render passes service env vars as build
 # args automatically; locally pass --build-arg NEXT_PUBLIC_API_URL=...
 ARG NEXT_PUBLIC_API_URL
