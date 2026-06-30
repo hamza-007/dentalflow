@@ -5,7 +5,9 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true
+  reactStrictMode: true,
+  // Emits a minimal self-contained server (.next/standalone) for Docker.
+  output: 'standalone'
 };
 
 export default withNextIntl(nextConfig);
