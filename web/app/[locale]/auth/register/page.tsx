@@ -10,6 +10,7 @@ import { useAuth } from '@/lib/auth/AuthContext';
 import { ApiClientError } from '@/lib/api/client';
 import { Button, Field, Input, RequiredLegend, Select } from '@/components/ui';
 import Logo from '@/components/brand/Logo';
+import LanguageSwitcher from '@/components/layout/LanguageSwitcher';
 
 export default function RegisterPage() {
   const t = useTranslations('auth');
@@ -40,6 +41,9 @@ export default function RegisterPage() {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-12">
+      <div className="mb-4 flex justify-end">
+        <LanguageSwitcher />
+      </div>
       <Logo className="mb-6 self-center" markSize={38} />
       <div className="card space-y-5 p-8">
         <div>

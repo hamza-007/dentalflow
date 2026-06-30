@@ -35,9 +35,13 @@ function DashboardContent() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-2xl font-bold text-slate-900">{title}</h1>
-        <Select value={status} onChange={(e) => setStatus(e.target.value)} className="max-w-xs">
+        <Select
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+          className="sm:max-w-xs"
+        >
           <option value="">{t('filterAll')}</option>
           {ALL_STATUSES.map((s) => (
             <option key={s} value={s}>

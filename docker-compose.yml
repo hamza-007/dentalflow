@@ -1,6 +1,7 @@
 services:
   postgres:
-    image: postgres:16
+    # pgvector image = postgres:16 + the `vector` extension (V2 Prosthesis Studio).
+    image: pgvector/pgvector:pg16
     container_name: dentalflow-postgres
     restart: unless-stopped
     environment:

@@ -78,7 +78,8 @@
     "cases": "Cas",
     "calendar": "Calendrier",
     "newCase": "Nouveau cas",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "language": "Langue"
   },
   "auth": {
     "loginTitle": "Connexion",
@@ -219,6 +220,26 @@
   },
   "patient": {
     "title": "Historique du patient"
+  },
+  "studio": {
+    "title": "Studio de prothèse",
+    "hint": "Modèle générique d'après les specs — visualisation uniquement.",
+    "watermark": "aperçu — non destiné à l'usinage",
+    "noTooth": "Sélectionnez une dent pour afficher l'aperçu."
+  },
+  "fiche": {
+    "title": "Fiche de fabrication",
+    "generate": "Générer la fiche",
+    "regenerate": "Régénérer",
+    "download": "Télécharger PDF",
+    "empty": "Aucune fiche générée pour l'instant.",
+    "qc": "Contrôle qualité",
+    "missing": "Données manquantes — consulter l'IFU du fabricant",
+    "cited": "source citée",
+    "errors": {
+      "unverified": "Génération refusée : un paramètre numérique n'était pas sourcé.",
+      "generic": "La génération a échoué. Réessayez."
+    }
   },
   "wizard": {
     "title": "Nouveau cas",

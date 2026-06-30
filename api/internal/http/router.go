@@ -11,8 +11,10 @@ import (
 	"dentalflow/api/internal/auth"
 	"dentalflow/api/internal/cases"
 	"dentalflow/api/internal/config"
+	"dentalflow/api/internal/fiche"
 	"dentalflow/api/internal/files"
 	"dentalflow/api/internal/http/handlers"
+	"dentalflow/api/internal/kb"
 	appmw "dentalflow/api/internal/http/middleware"
 	"dentalflow/api/internal/messages"
 	"dentalflow/api/internal/notifications"
@@ -47,6 +49,11 @@ func New(logger *slog.Logger, pool *pgxpool.Pool, cfg config.Config) http.Handle
 	fileSvc := files.NewService(filesRepo, storage, caseSvc)
 	notifSvc := notifications.NewService(notifRepo)
 
+	// Prosthesis Studio (V2): deterministic fiche assembly from the KB (no LLM,
+	// no external calls).
+	kbSvc := kb.NewService(kb.NewRepository(pool))
+	ficheSvc := fiche.NewService(fiche.NewRepository(pool), kbSvc, caseSvc, logger)
+
 	// --- handlers ---
 	healthH := handlers.NewHealthHandler(pool)
 	authH := handlers.NewAuthHandler(authSvc)
@@ -54,6 +61,7 @@ func New(logger *slog.Logger, pool *pgxpool.Pool, cfg config.Config) http.Handle
 	msgH := handlers.NewMessageHandler(msgSvc)
 	fileH := handlers.NewFileHandler(fileSvc, cfg.MaxUploadSizeMB)
 	notifH := handlers.NewNotificationHandler(notifSvc)
+	ficheH := handlers.NewFicheHandler(ficheSvc)
 
 	authenticate := appmw.Authenticator(tokens)
 
@@ -111,6 +119,11 @@ func New(logger *slog.Logger, pool *pgxpool.Pool, cfg config.Config) http.Handle
 					r.Get("/files", fileH.List)
 					r.Post("/files", fileH.Upload)
 					r.Delete("/files/{file_id}", fileH.Delete)
+
+					// Prosthesis Studio — fiche de fabrication.
+					r.Post("/fiche", ficheH.Generate)
+					r.Get("/fiche", ficheH.Latest)
+					r.Get("/fiche/versions", ficheH.Versions)
 				})
 			})
 		})

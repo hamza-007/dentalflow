@@ -103,6 +103,50 @@ export interface Notification {
   created_at: string;
 }
 
+// ── Prosthesis Studio — fiche de fabrication ──
+export interface FicheParameter {
+  label: string;
+  value: string;
+  unit: string;
+  source_id: string;
+}
+
+export interface FicheStage {
+  order: number;
+  title: string;
+  instructions: string;
+  parameters: FicheParameter[];
+}
+
+export interface FicheContent {
+  case_summary: { type: string; material: string; shade: string; teeth: string[] };
+  materials: string[];
+  equipment: string[];
+  stages: FicheStage[];
+  qc_checklist: string[];
+  cautions: string[];
+  missing_data: string[];
+  disclaimer: string;
+}
+
+export interface FicheSource {
+  source_id: string;
+  title: string;
+  manufacturer: string;
+  product: string;
+  page: number;
+}
+
+export interface Fiche {
+  id: string;
+  case_id: string;
+  version: number;
+  content: FicheContent;
+  sources: FicheSource[];
+  created_by: string;
+  created_at: string;
+}
+
 export interface CreateCaseInput {
   lab_id: string;
   patient_ref: string;

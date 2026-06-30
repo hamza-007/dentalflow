@@ -10,6 +10,7 @@ import {
 import { Link } from '@/i18n/navigation';
 import Logo, { LogoMark } from '@/components/brand/Logo';
 import Reveal from '@/components/ui/Reveal';
+import LanguageSwitcher from '@/components/layout/LanguageSwitcher';
 import { UPPER_TEETH } from '@/lib/constants/toothChart';
 
 export default async function HomePage({
@@ -36,18 +37,19 @@ export default async function HomePage({
     <div className="min-h-screen">
       {/* ── Header ── */}
       <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-porcelain/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
           <Logo markSize={30} />
           <div className="flex items-center gap-2">
+            <LanguageSwitcher />
             <Link
               href="/auth/login"
-              className="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-ink"
+              className="hidden rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-ink sm:block"
             >
               {t('loginCta')}
             </Link>
             <Link
               href="/auth/register"
-              className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-700"
+              className="rounded-lg bg-brand-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-700 sm:px-4"
             >
               {t('registerCta')}
             </Link>
@@ -66,7 +68,7 @@ export default async function HomePage({
           <div>
             <p className="eyebrow reveal">{t('eyebrow')}</p>
             <h1
-              className="reveal mt-5 text-5xl font-extrabold leading-[1.02] text-ink sm:text-6xl"
+              className="reveal mt-5 text-4xl font-extrabold leading-[1.05] text-ink sm:text-5xl lg:text-6xl"
               style={{ animationDelay: '60ms' }}
             >
               {t('h1a')}

@@ -7,6 +7,7 @@ import type {
   CaseFile,
   CaseReturn,
   CreateCaseInput,
+  Fiche,
   Lab,
   Message,
   Notification,
@@ -167,7 +168,14 @@ export const api = {
     sign: (id: string, signature: string) =>
       data<Case>(`/cases/${id}/sign`, { method: 'POST', body: { signature } }),
     patientHistory: (patientRef: string) =>
-      data<Case[]>(`/cases?patient_ref=${encodeURIComponent(patientRef)}`)
+      data<Case[]>(`/cases?patient_ref=${encodeURIComponent(patientRef)}`),
+
+    // Prosthesis Studio — fiche de fabrication.
+    fiche: {
+      latest: (id: string) => data<Fiche>(`/cases/${id}/fiche`),
+      generate: (id: string) => data<Fiche>(`/cases/${id}/fiche`, { method: 'POST' }),
+      versions: (id: string) => data<Fiche[]>(`/cases/${id}/fiche/versions`)
+    }
   },
 
   notifications: {

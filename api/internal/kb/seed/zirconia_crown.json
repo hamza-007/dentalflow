@@ -1,0 +1,36 @@
+{
+  "document": {
+    "title": "Frittage & finition zircone — fiche technique (EXEMPLE)",
+    "manufacturer": "Exemple",
+    "product": "Zircone HT (générique)",
+    "material": "zircone",
+    "source_url": ""
+  },
+  "chunks": [
+    {
+      "content": "Frittage final de la zircone HT : température maximale 1530 °C avec un maintien (palier) de 120 minutes.",
+      "parameter_type": "sintering",
+      "page": 1
+    },
+    {
+      "content": "Vitesse de montée en température recommandée : 10 °C/min de 900 °C jusqu'à la température finale de frittage.",
+      "parameter_type": "sintering",
+      "page": 1
+    },
+    {
+      "content": "Refroidissement contrôlé après frittage jusqu'à 200 °C avant ouverture du four pour éviter les contraintes thermiques.",
+      "parameter_type": "sintering",
+      "page": 2
+    },
+    {
+      "content": "Cuisson de glaçage de la zircone : 820 °C, maintien 60 secondes, montée 55 °C/min.",
+      "parameter_type": "glaze",
+      "page": 3
+    },
+    {
+      "content": "Collage : ciment résineux auto-adhésif. Sablage de l'intrados à l'oxyde d'alumine 50 µm sous 1,5 bar avant collage.",
+      "parameter_type": "cement",
+      "page": 4
+    }
+  ]
+}

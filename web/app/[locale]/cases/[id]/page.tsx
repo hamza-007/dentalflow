@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { format } from 'date-fns';
@@ -16,7 +17,13 @@ import ReturnForm from '@/components/cases/ReturnForm';
 import ReceptionChecklist from '@/components/cases/ReceptionChecklist';
 import SignaturePad from '@/components/cases/SignaturePad';
 import PatientHistory from '@/components/cases/PatientHistory';
+import FichePanel from '@/components/cases/FichePanel';
 import { Button } from '@/components/ui';
+
+// 3D preview is browser-only (WebGL) — load it client-side without SSR.
+const ToothPreview3D = dynamic(() => import('@/components/cases/ToothPreview3D'), {
+  ssr: false
+});
 import { Skeleton } from '@/components/ui/Loading';
 import { getProsthesisType } from '@/lib/constants/prosthesisTypes';
 import { deadlineColor, deadlineColorClasses, deadlineDays } from '@/lib/case/helpers';
@@ -38,6 +45,7 @@ const MESSAGE_POLL_MS = 10000;
 
 function CaseDetail({ caseId }: { caseId: string }) {
   const tc = useTranslations('case');
+  const tStudio = useTranslations('studio');
   const { user } = useAuth();
   const router = useRouter();
 
@@ -210,6 +218,22 @@ function CaseDetail({ caseId }: { caseId: string }) {
         editable={isLab}
         onConfirm={onReception}
       />
+
+      {/* Prosthesis Studio — generic 3D preview (visualization only). */}
+      {caseItem.prosthesis_type && caseItem.teeth.length > 0 ? (
+        <section className="space-y-3 rounded-2xl border border-slate-200/70 bg-white p-4">
+          <div className="flex items-center justify-between gap-3">
+            <h2 className="text-lg font-semibold text-slate-900">{tStudio('title')}</h2>
+            <span className="text-xs text-slate-400">{tStudio('hint')}</span>
+          </div>
+          <ToothPreview3D
+            prosthesisType={caseItem.prosthesis_type}
+            teeth={caseItem.teeth}
+            shade={caseItem.shade ?? null}
+          />
+          <FichePanel caseId={caseId} isLab={isLab} patientRef={caseItem.patient_ref} />
+        </section>
+      ) : null}
 
       <div className="grid gap-8 lg:grid-cols-2">
         <CaseTimeline
