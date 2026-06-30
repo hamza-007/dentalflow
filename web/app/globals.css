@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f5f9f7;
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background-color: #0c8c79;
+    color: #fff;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Mono eyebrow label used to tag sections with the product's "clinical code" voice. */
+  .eyebrow {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.18em] text-brand-700;
+  }
+  /* Clinical data values (FDI numbers, shades, refs). */
+  .data {
+    @apply font-mono tabular-nums tracking-tight;
+  }
+  .card {
+    @apply rounded-2xl border border-slate-200/70 bg-white shadow-card;
+  }
+  /* Jade→cyan clipped-text gradient for accent words. */
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-600 via-brand-500 to-cyan-500 bg-clip-text text-transparent;
+  }
+  /* Frosted translucent surface. */
+  .glass {
+    @apply border border-white/50 bg-white/70 backdrop-blur-md;
+  }
+  /* Shimmering skeleton placeholder. */
+  .skeleton {
+    @apply relative overflow-hidden bg-slate-200/70;
+  }
+  .skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.65),
+      transparent
+    );
+    animation: skeleton-sweep 1.5s infinite;
+  }
+}
+
+@layer utilities {
+  /* Subtle fade-up reveal; stagger via inline animation-delay. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: reveal 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  }
+  .grid-clinic {
+    background-image:
+      linear-gradient(to right, rgba(12, 140, 121, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(12, 140, 121, 0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Left-to-right "draw in" for the hero tooth arch + segments. */
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes skeleton-sweep {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  [style*='animation'],
+  .animate-float,
+  .animate-float-slow,
+  .animate-shimmer,
+  .animate-pulse-ring,
+  .animate-dot,
+  .animate-breathe,
+  .animate-spin {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .skeleton::after {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,12 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+
+# Local env
+.env
+
+# V3 model weights (not used by the color-science baseline)
+models/

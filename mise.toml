@@ -1,0 +1,72 @@
+# mise — tool versions + task runner for DentalFlow.
+# Install mise: https://mise.jdx.dev
+# List tasks:   mise tasks
+# Run a task:   mise run <task>   (or simply: mise <task>)
+
+[tools]
+go = "1.22"
+node = "20"
+
+# ───────────────── Docker / Postgres ─────────────────
+[tasks.up]
+description = "Start Postgres (docker compose up -d)"
+run = "docker compose up -d"
+
+[tasks.down]
+description = "Stop the stack"
+run = "docker compose down"
+
+[tasks.reset-db]
+description = "Wipe + restart Postgres (DESTRUCTIVE — deletes data)"
+run = "docker compose down -v && docker compose up -d"
+
+# ───────────────── Backend (/api) ─────────────────
+[tasks.api]
+description = "Run the Go API on :8080 (applies migrations on boot)"
+dir = "api"
+run = "go run ./cmd/server"
+
+[tasks.api-tidy]
+description = "Sync Go dependencies (go mod tidy)"
+dir = "api"
+run = "go mod tidy"
+
+[tasks.api-fmt]
+description = "Format Go code (gofmt -w)"
+dir = "api"
+run = "gofmt -w ."
+
+[tasks.api-check]
+description = "Vet, build and test the API"
+dir = "api"
+run = ["go vet ./...", "go build ./...", "go test ./..."]
+
+[tasks.seed]
+description = "Insert demo data (1 lab, 1 dentist, 3 cases)"
+dir = "api"
+run = "go run ./cmd/seed"
+
+# ───────────────── Frontend (/web) ─────────────────
+[tasks.web-install]
+description = "Install web dependencies (npm install)"
+dir = "web"
+run = "npm install"
+
+[tasks.web]
+description = "Run the Next.js dev server on :3000"
+dir = "web"
+run = "npm run dev"
+
+[tasks.web-check]
+description = "Typecheck, lint and build the web app"
+dir = "web"
+run = ["npm run typecheck", "npm run lint", "npm run build"]
+
+# ───────────────── Combined ─────────────────
+[tasks.setup]
+description = "First-time setup: start DB, sync Go deps, install web deps"
+depends = ["up", "api-tidy", "web-install"]
+
+[tasks.check]
+description = "Run ALL checks (backend + frontend) before a PR"
+depends = ["api-check", "web-check"]

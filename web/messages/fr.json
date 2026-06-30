@@ -1,0 +1,243 @@
+{
+  "home": {
+    "title": "DentalFlow",
+    "subtitle": "La plateforme qui relie prothésistes dentaires et dentistes.",
+    "login": "Se connecter",
+    "register": "Créer un compte",
+    "health": {
+      "label": "État de l'API",
+      "loading": "Vérification…",
+      "ok": "Connecté",
+      "error": "Indisponible",
+      "dbLabel": "Base de données"
+    }
+  },
+  "landing": {
+    "loginCta": "Se connecter",
+    "registerCta": "Créer un compte",
+    "eyebrow": "Prothèse dentaire · numérisée",
+    "h1a": "Du fauteuil au labo,",
+    "h1b": "sans un seul appel.",
+    "sub": "DentalFlow remplace WhatsApp, le téléphone et les bons papier par un flux clair : prescription structurée, schéma dentaire FDI, suivi en temps réel et messagerie par cas.",
+    "trust": "Pensé pour les prothésistes et les dentistes — notation FDI, teintes VITA, et chaque type de prothèse.",
+    "card": {
+      "case": "Cas",
+      "status": "En fabrication",
+      "patient": "Patient",
+      "type": "Couronne",
+      "material": "Zircone",
+      "shade": "Teinte",
+      "deadline": "Échéance",
+      "dueValue": "J−2"
+    },
+    "problem": {
+      "eyebrow": "Le quotidien, aujourd'hui",
+      "title": "100 minutes par jour, perdues au téléphone.",
+      "body": "« C'est prêt, le bridge de Mme Mechri ? » Le labo cherche dans trois cahiers. Les infos arrivent par WhatsApp, SMS, appel et papier — en même temps. Plus personne ne sait qui a dit quoi.",
+      "solutionEyebrow": "Avec DentalFlow",
+      "solutionTitle": "Tout vit dans le cas."
+    },
+    "features": {
+      "eyebrow": "Le produit",
+      "title": "Un outil qui parle votre métier.",
+      "prescriptionLabel": "Prescription",
+      "prescriptionTitle": "Formulaire adaptatif",
+      "prescriptionBody": "Les champs changent selon le type : couronne, bridge, facette, dentier, aligneurs.",
+      "chartLabel": "Schéma FDI",
+      "chartTitle": "Schéma dentaire cliquable",
+      "chartBody": "Sélectionnez les dents d'un clic. Zéro erreur de numéro.",
+      "timelineLabel": "Suivi",
+      "timelineTitle": "Timeline en temps réel",
+      "timelineBody": "Chaque étape horodatée. Le dentiste suit sans appeler.",
+      "messagingLabel": "Messagerie",
+      "messagingTitle": "Discussion par cas",
+      "messagingBody": "Toute la conversation au même endroit. Fini WhatsApp.",
+      "calendarLabel": "Échéances",
+      "calendarTitle": "Calendrier & alertes",
+      "calendarBody": "Vert, orange, rouge — aucune deadline oubliée.",
+      "deliveryLabel": "Livraison",
+      "deliveryTitle": "Bon de livraison signé",
+      "deliveryBody": "PDF généré, signé à la réception, archivé pour toujours."
+    },
+    "workflow": {
+      "eyebrow": "Le flux",
+      "title": "Sept étapes, zéro ambiguïté."
+    },
+    "ctaBand": {
+      "title": "Prêt à ranger les cahiers ?",
+      "body": "Créez votre compte et lancez votre premier cas en deux minutes.",
+      "button": "Commencer"
+    },
+    "footer": {
+      "tagline": "Le labo et le cabinet, sur la même page.",
+      "rights": "Tunisie · 2025"
+    }
+  },
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "cases": "Cas",
+    "calendar": "Calendrier",
+    "newCase": "Nouveau cas",
+    "logout": "Déconnexion"
+  },
+  "auth": {
+    "loginTitle": "Connexion",
+    "registerTitle": "Créer un compte",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "fullName": "Nom complet",
+    "clinicName": "Nom du cabinet / laboratoire",
+    "phone": "Téléphone",
+    "city": "Ville",
+    "role": "Vous êtes",
+    "roleDentist": "Dentiste",
+    "roleLab": "Prothésiste (laboratoire)",
+    "submitLogin": "Se connecter",
+    "submitRegister": "S'inscrire",
+    "haveAccount": "Déjà un compte ?",
+    "noAccount": "Pas encore de compte ?",
+    "goLogin": "Se connecter",
+    "goRegister": "Créer un compte",
+    "errorInvalid": "E-mail ou mot de passe invalide.",
+    "errorEmailExists": "Cet e-mail est déjà utilisé.",
+    "errorGeneric": "Une erreur est survenue. Réessayez."
+  },
+  "validation": {
+    "required": "Champ requis",
+    "email": "E-mail invalide",
+    "minPassword": "8 caractères minimum",
+    "selectRole": "Choisissez un rôle"
+  },
+  "form": {
+    "optional": "(facultatif)",
+    "requiredLegend": "Les champs marqués * sont obligatoires."
+  },
+  "dashboard": {
+    "labTitle": "Cas reçus",
+    "dentistTitle": "Mes cas",
+    "empty": "Aucun cas pour le moment.",
+    "filterAll": "Tous les statuts",
+    "createCta": "Créer un cas"
+  },
+  "case": {
+    "patientRef": "Réf. patient",
+    "type": "Type de prothèse",
+    "material": "Matériau",
+    "shade": "Teinte",
+    "teeth": "Dents",
+    "status": "Statut",
+    "priority": "Priorité",
+    "dueDate": "Échéance",
+    "notes": "Notes",
+    "lab": "Laboratoire",
+    "dueIn": "Échéance dans {days} j",
+    "overdue": "En retard de {days} j",
+    "dueToday": "Échéance aujourd'hui",
+    "priorityNormal": "Normal",
+    "priorityUrgent": "Urgent",
+    "delete": "Annuler le cas",
+    "deleteConfirm": "Annuler ce cas ? Action irréversible.",
+    "download": "Télécharger le bon de livraison",
+    "finalPhotoRequired": "Ajoutez une photo de la prothèse finie (type « Photo finale ») avant de livrer.",
+    "actionError": "Action impossible. Réessayez."
+  },
+  "status": {
+    "new": "Nouveau",
+    "accepted": "Accepté",
+    "designing": "En conception",
+    "fabricating": "En fabrication",
+    "checking": "Contrôle qualité",
+    "ready": "Prêt",
+    "delivered": "Livré",
+    "rejected": "Refusé",
+    "correction": "Correction"
+  },
+  "timeline": {
+    "title": "Suivi du statut",
+    "advance": "Faire avancer",
+    "notePlaceholder": "Note (facultatif)",
+    "moveTo": "Passer à",
+    "empty": "Aucun changement de statut pour l'instant.",
+    "by": "par {name}"
+  },
+  "messages": {
+    "title": "Messages",
+    "placeholder": "Écrire un message…",
+    "send": "Envoyer",
+    "empty": "Aucun message. Démarrez la conversation."
+  },
+  "files": {
+    "title": "Fichiers",
+    "drop": "Glissez des fichiers ici ou cliquez pour parcourir",
+    "uploading": "Envoi…",
+    "empty": "Aucun fichier.",
+    "delete": "Supprimer",
+    "type": {
+      "photo": "Photo",
+      "scan": "Scan",
+      "xray": "Radio",
+      "final": "Photo finale",
+      "other": "Autre"
+    }
+  },
+  "returns": {
+    "cta": "Retourner pour correction",
+    "title": "Motif du retour",
+    "note": "Précisions (facultatif)",
+    "submit": "Confirmer le retour",
+    "cancel": "Annuler",
+    "reasons": {
+      "teinte": "Teinte incorrecte",
+      "forme": "Forme anatomique inadaptée",
+      "occlusion": "Occlusion à corriger",
+      "marge": "Marge ouverte / débordante",
+      "contact": "Contact proximal inadapté",
+      "axe": "Axe incorrect",
+      "surface": "Surface rugueuse",
+      "autre": "Autre"
+    }
+  },
+  "reception": {
+    "title": "Réception du cas",
+    "confirm": "Confirmer la réception",
+    "confirmedAt": "Reçu le {date}",
+    "items": {
+      "empreinte": "Empreinte / fichier STL reçu",
+      "prescription": "Prescription complète",
+      "photos": "Photos reçues",
+      "teinte": "Teinte précisée",
+      "antagoniste": "Modèle antagoniste reçu",
+      "occlusion": "Prescription d'occlusion notée"
+    }
+  },
+  "signature": {
+    "title": "Signature de réception",
+    "hint": "Le dentiste signe à la réception de la prothèse.",
+    "save": "Enregistrer la signature",
+    "clear": "Effacer",
+    "signed": "Signé"
+  },
+  "patient": {
+    "title": "Historique du patient"
+  },
+  "wizard": {
+    "title": "Nouveau cas",
+    "step1": "Informations",
+    "step2": "Fichiers",
+    "step3": "Validation",
+    "next": "Suivant",
+    "back": "Retour",
+    "submit": "Créer le cas",
+    "selectLab": "Choisir un laboratoire",
+    "selectType": "Choisir un type",
+    "selectShade": "Choisir une teinte",
+    "review": "Vérifiez les informations avant de créer le cas.",
+    "creating": "Création…",
+    "missingFields": "Champs obligatoires manquants :"
+  },
+  "calendar": {
+    "title": "Calendrier des échéances",
+    "noCases": "Aucun cas ce jour.",
+    "casesOn": "Cas du {date}"
+  }
+}
